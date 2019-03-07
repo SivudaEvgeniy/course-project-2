@@ -1,7 +1,7 @@
 
 public class NePolniyPrognoz {
 
-	private Function f;
+	private SystemFunctions f;
 	private int n;
 	private double eps;
 	private double[] x;
@@ -15,14 +15,14 @@ public class NePolniyPrognoz {
 	
 	public NePolniyPrognoz(int n,double eps, double[] x) {
 		this.n = n;
-		f = new Function(n);
+		f = new SystemFunctions(n);
 		this.eps = eps;
 		this.x = x;
 		beta=0.001 + (int) (Math.random() * 0.1);
 		gamma=beta*beta;
 	}
 	
-	public int solve() {
+	public double[] solve() {
 		int i;
 		for(i=0;i<10000;i++) {
 			i++;
@@ -35,7 +35,7 @@ public class NePolniyPrognoz {
 			}
 			shag4(normPrevious,normLast);
 		}
-		return i;
+		return x;
 	}
 	
 	private double[] shag1() {

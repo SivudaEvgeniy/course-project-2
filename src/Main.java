@@ -51,22 +51,30 @@ public class Main {
 	    	  System.out.print(x0[i]+", ");
 	      }
 	      System.out.println("]");
-	      
-	    
-		nuton(n, x0);
-		
-	    
-		
-		nePolniyPrognoz(n, x0);
-		
+	      Nuton nuton=new Nuton(n,eps, x0);
+	      double[] sd=nuton.solve();
+	      Vector.show(sd);
+	      NePolniyPrognoz nePolniyPrognoz=new NePolniyPrognoz(n,eps, x0);
+	      sd=nePolniyPrognoz.solve();
+	      Vector.show(sd);
+	      PolniyPrognoz зolniyPrognoz=new PolniyPrognoz(n,eps, x0);
+	      sd=зolniyPrognoz.solve();
+	      Vector.show(sd);
 
-		
-		polniyPrognoz(n, x0);
+//		nuton(n, x0);
+//		
+//	    
+//		
+//		nePolniyPrognoz(n, x0);
+//		
+//
+//		
+//		polniyPrognoz(n, x0);
 	}
 	
 	
-	public static void nuton(int n, double pribl) {
-		Function func=new Function(n);
+/*	public static void nuton(int n, double pribl) {
+		SystemFunctions func=new SystemFunctions(n);
 		double[] xPribl= new double[n];
 		for(int i=0;i<n;i++) {
 			xPribl[i]=pribl;
@@ -86,7 +94,7 @@ public class Main {
 	public static void nutonPlus(int n,double pribl) {
 		double beta=0.01;
 		double gamma=beta*beta;
-		Function func=new Function(n);                           
+		SystemFunctions func=new SystemFunctions(n);                           
 		double[] xPribl= new double[n];
 		for(int i=0;i<n;i++) {
 			xPribl[i]=pribl;                            //начальное приближение = (0,0,...,0)
@@ -126,7 +134,7 @@ public class Main {
 	public static void nutonPlusPlus(int n,double pribl) {
 		double beta=0.01;
 		double gamma=beta*beta;
-		Function func=new Function(n);                           
+		SystemFunctions func=new SystemFunctions(n);                           
 		double[] xPribl= new double[n];
 		for(int i=0;i<n;i++) {
 			xPribl[i]=pribl;                            //начальное приближение = (0,0,...,0)
@@ -172,60 +180,18 @@ public class Main {
 		System.out.println(it);
 		
 	}
-	
+	*/
 
-	public static double[] SLAUSolution(double[][] matr,double[] xN) {       //метод Гаусса 
-		int n=matr.length;                                                   //для СЛАУ
-		double[][] test= new double[n][n+1];
-		for(int i=0;i<n;i++) {
-			for(int j=0;j<n;j++) {
-				test[i][j]=matr[i][j];
-			}
-			test[i][n]=xN[i];
-		}
-		Matrica matrix=new Matrica(test);;
-		matrix.pesult();
-		matrix.finish();
-		return matrix.resultat();
-	}
 	
-	public static double[] summ(double[] a, double[] b) {                   //сумма двух векторов
-		int size=a.length;
-		double[] result = new double[size];
-		for(int i=0;i<size;i++) {
-			result[i]=a[i]+b[i];
-		}
-		return result;
-	}
 	
-	public static double norma(double[] vect) {                             //норма вектора
-		int size=vect.length;
-		double result = 0;
-		for(int i=0;i<size;i++) {
-			result+=vect[i]*vect[i];
-		}
-		return Math.sqrt(result);
-	}
 	
-	public static void show(double[] vect) {                         //вывести вектор на консоль
-		for(int i=0;i<vect.length;i++) {
-			System.out.println("x["+(i+1)+"]"+vect[i]);
-		}
-	}
 	
-	public static double[] skalar(double skalar, double[] vect) {            //домножение вектора на скаляр
-		int size=vect.length;
-		double[] result = vect;
-		for(int i=0;i<size;i++) {
-			result[i]*=skalar;
-		}
-		return result;
-	}
+	
 	//////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
-	public static void nuton(int n, double[] x0) {                                                                                    //метод Ньютона
+/*	public static void nuton(int n, double[] x0) {                                                                                    //метод Ньютона
 		Nuton nuton=new Nuton(n,eps, x0);                                  ///////////////////////////////////////////////////////////////////////////////
 		long start=System.nanoTime();
 		int i=nuton.solve();                                               /////////////////////////////////////////////////////////////////////////
@@ -256,7 +222,7 @@ public class Main {
 		System.out.println("Скорость выполнения метода: " + start + " наносекунд"); 
 		System.out.println(i+" итераций"); 
 	}
-
+*/
 }
 
 

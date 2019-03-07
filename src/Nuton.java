@@ -1,7 +1,7 @@
 
 public class Nuton {
 
-	private Function f;
+	private SystemFunctions f;
 	private int n;
 	private double eps;
 	private double[] x;
@@ -13,7 +13,7 @@ public class Nuton {
 	
 	public Nuton(int n,double eps, double[] x) {
 		this.n = n;
-		f = new Function(n);
+		f = new SystemFunctions(n);
 		this.eps = eps;
 		this.x = x;
 	}
@@ -27,13 +27,13 @@ public class Nuton {
 		return Vector.summ(x,inc);
 	}
 	
-	public int solve() {
+	public double[] solve() {
 		int i=0;
 		do {
 			i++;
 			x=increment(findInc());
 		}while(Vector.norma(f.func(x)) > eps );
-		return i;
+		return x;
 	}
 	
 	public void show() {

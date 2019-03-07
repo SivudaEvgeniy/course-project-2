@@ -1,10 +1,10 @@
-
-public class Function {
+import org.mariuszgromada.math.mxparser.*;
+public class SystemFunctions {
 
 private int size;
 	
 	
-	Function(int size){
+	SystemFunctions(int size){
 		this.size=size;
 	}
 	

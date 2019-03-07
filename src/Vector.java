@@ -47,7 +47,7 @@ public class Vector {
 	public static double[] random(int n) {
 		double[] vect = new double[n];
 		for(int i=0;i<n;i++) {
-			vect[i]=Math.random()/2+0.5;
+			vect[i]=0;//Math.random()/2+0.5;
 		}
 		return vect;
 	}
